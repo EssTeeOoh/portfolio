@@ -1,0 +1,453 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with Samuel landing page.">
+    <meta name="author" content="Devcrud">
+    <title>Samuel Olu Landing Page</title>
+    
+    <!-- font icons -->
+    <link rel="stylesheet" href="{% static 'website/vendors/themify-icons/css/themify-icons.css' %}">
+    
+    <link rel="icon" href="{% static 'website/imgs/icon1.png' %}"
+    type = "image/x-icon">
+    
+    <!-- Bootstrap + JohnDoe main styles -->
+	<link rel="stylesheet" href="{% static 'website/css/johndoe.css' %}">
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="#">
+    <a href="#" class="#" data-spy="affix" data-offset-top="600"><i class="#"></i> </a>
+    <header class="header">
+        <div class="container">
+  
+            <div class="header-content">
+                {% if message_name %}
+                    <center>
+                        <h2>Thanks {{ message_name }}!</h2>
+                        <p>Email has been sent, You will receive a response shortly</p>
+                    </center>
+                    <br/><br/><br/>
+                {% endif%}
+
+                <h4 class="header-subtitle" >Hello, I am</h4>
+                <h1 class="header-title">Samuel Olu</h1>
+                <h6 class="header-mono" >Network | Backend Engineer</h6>
+                
+            </div>
+        </div>
+    </header>
+    <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-white" data-spy="affix" data-offset-top="510">
+        <div class="container">
+            <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse mt-sm-20 navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a href="#home" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#about" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#resume" class="nav-link">Resume</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav brand">
+                    <img src="{% static 'website/imgs/avatar2.jpg' %}" alt="" class="brand-img">
+                    <li class="brand-txt">
+                        <h5 class="brand-title">Samuel Olu</h5>
+                        <div class="brand-subtitle">Network | Backend Engineer</div>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a href="#portfolio" class="nav-link">Portfolio</a>
+                    </li>
+                    <li class="nav-item last-item">
+                        <a href="#contact" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div id="about" class="row about-section">
+            <div class="col-lg-4 about-card">
+                <h3 class="font-weight-light">Who am I ?</h3>
+                <span class="line mb-5"></span>
+                <style> 
+                    .avatar{
+                        border-radius: 38%;
+                    }
+                </style>
+                <p align ="left"><img src= "{% static 'website/imgs/avatar1.jpg' %}" alt= "avatar1" width="200" height="160" border="5" class = "avatar"/></p>
+                
+                <h5 class="mb-3">A  Network / Backend Engineer Located In Our Lovely Earth</h5>
+                <p class="mt-20">Hey there🙂, I'm a computer engineering student, I love to explore, create and bring objects to life. 
+                I have good knowlegde in computer network and i build dope sites like this for fun.</p>
+                
+            </div>
+            <div class="col-lg-4 about-card">
+                <h3 class="font-weight-light">Personal Info</h3>
+                <span class="line mb-5"></span>
+                <ul class="mt40 info list-unstyled">
+                   
+                    
+                    <li><span>Connect with me</span>
+                </ul>
+                <ul class="social-icons pt-3">
+                    <li class="social-item"><a class="social-link" href="https://web.facebook.com/tee.ooh.545/"><i class="ti-facebook" aria-hidden="true"></i></a></li>
+                    <li class="social-item"><a class="social-link" href="https://twitter.com/essteeooh"><i class="ti-twitter" aria-hidden="true"></i></a></li>
+                    <li class="social-item"><a class="social-link" href="#"><i class="" aria-hidden="true"></i></a></li>
+                    <li class="social-item"><a class="social-link" href="#"><i class="" aria-hidden="true"></i></a></li>
+                    <li class="social-item"><a class="social-link" href="#"><i class="" aria-hidden="true"></i></a></li>
+                </ul>  
+            </div>
+            <div class="col-lg-4 about-card">
+                <h3 class="font-weight-light"></h3>
+                <span class=""></span>
+                <div class="row">
+                    <div class=""><i class=""></i></div>
+                    <div class="font-weight-light">
+                        <center>
+                        <h3> Inspiration Exist But It Must Find You Working </h3>
+                        <p align = "right" class="subtitle"> ~Pablo Picasso </p>
+                        <hr>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Resume Section-->
+    <section class="section" id="resume">
+        <div class="container">
+            <h2 class="mb-5"><span class="text-danger">My</span> Resume</h2>
+            <div class="row">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card">
+                       <div class="card-header">
+                            <div class="mt-2">
+                                <h4>Expertise</h4>
+                                <span class="line"></span>  
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h6 class="title text-danger">2018 - Present</h6>
+                            <P>Graphics Design</P>
+                            <P class="subtitle"> </P>
+                            <hr>
+                            <h6 class="title text-danger">2021 - Present</h6>
+                            <P>Backend Web Development</P>
+                            <P class="subtitle"> </P>
+                            <hr>
+                            <h6 class="title text-danger">2021 - Present</h6>
+                            <P>Computer Network</P>
+                            <P class="subtitle"> </P>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card">
+                       <div class="card-header">
+                            <div class="mt-2">
+                                <h4>Education</h4>
+                                <span class="line"></span>  
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h6 class="title text-danger">2017 - Present</h6>
+                            <P>B.Eng Computer Engineering</P>
+                            <P class="subtitle"> </P>
+                            <hr>
+                            <h6 class="title text-danger">2011 - 2016</h6>
+                            <P>High School Degree</P>
+                            <P class="subtitle"> </P>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card">
+                       <div class="card-header">
+                            <div class="pull-left">
+                                <h4 class="mt-2">Skills</h4>
+                                <span class="line"></span>  
+                            </div>
+                        </div>
+                        <div class="card-body pb-2">
+                           <h6>hTL5 &amp; CSS3</h6>
+                            <div class="progress mb-3">
+                                <div class="progress-bar bg-danger" role="progressbar" style="width: 60%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <h6>Python</h6>
+                            <div class="progress mb-3">
+                                <div class="progress-bar bg-danger" role="progressbar" style="width: 85%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <h6>C++</h6>
+                            <div class="progress mb-3">
+                                <div class="progress-bar bg-danger" role="progressbar" style="width: 65%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <h6>SQL</h6>
+                            <div class="progress mb-3">
+                                <div class="progress-bar bg-danger" role="progressbar" style="width: 50%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                       <div class="card-header">
+                            <div class="pull-left">
+                                <h4 class="mt-2">Languages</h4>
+                                <span class="line"></span>  
+                            </div>
+                        </div>
+                        <div class="card-body pb-2">
+                           <h6>English</h6>
+                            <div class="progress mb-3">
+                                <div class="progress-bar bg-danger" role="progressbar" style="width: 95%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <h6>Pidgin</h6>
+                            <div class="progress mb-3">
+                                <div class="progress-bar bg-danger" role="progressbar" style="width: 95%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <h6>Yoruba</h6>
+                            <div class="progress mb-3">
+                                <div class="progress-bar bg-danger" role="progressbar" style="width: 70%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section bg-dark text-center">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-6 col-lg-3">
+                    <div class="row ">
+                        <div class="col-5 text-right text-light border-right py-3">
+                            <div class="m-auto"><i class="ti-alarm-clock icon-xl"></i></div>
+                        </div>
+                        <div class="col-7 text-left py-3">
+                            <h1 class="text-danger font-weight-bold font40">300</h1>
+                            <p class="text-light mb-1">Hours Worked</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="row">
+                        <div class="col-5 text-right text-light border-right py-3">
+                            <div class="m-auto"><i class="ti-layers-alt icon-xl"></i></div>
+                        </div>
+                        <div class="col-7 text-left py-3">
+                            <h1 class="text-danger font-weight-bold font40">50K</h1>
+                            <p class="text-light mb-1">Project Finished</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="row">
+                        <div class="col-5 text-right text-light border-right py-3">
+                            <div class="m-auto"><i class="ti-face-smile icon-xl"></i></div>
+                        </div>
+                        <div class="col-7 text-left py-3">
+                            <h1 class="text-danger font-weight-bold font40">200K</h1>
+                            <p class="text-light mb-1">Happy Clients</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="row">
+                        <div class="col-5 text-right text-light border-right py-3">
+                            <div class="m-auto"><i class="ti-heart-broken icon-xl"></i></div>
+                        </div>
+                        <div class="col-7 text-left py-3">
+                            <h1 class="text-danger font-weight-bold font40">2k</h1>
+                            <p class="text-light mb-1">Coffee Dranked</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="service">
+        <div class="container">
+            <h2 class="mb-5 pb-4"><span class="text-danger">My</span> Services</h2>
+            <div class="row">
+                <div class="col-md-4 col-sm-6">
+                    <div class="card mb-5">
+                       <div class="card-header has-icon">
+                            <i class="ti-vector text-danger" aria-hidden="true"></i>
+                        </div>
+                        <div class="card-body px-4 py-3">
+                            <h5 class="mb-3 card-title text-dark">Web Hosting</h5>
+                            <P class="subtitle">I can host your web app's files on a server that can be accessed from anywhere in the world as well as manage your server, backup services, security and offer technical support. </P>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="card mb-5">
+                       <div class="card-header has-icon">
+                            <i class="ti-write text-danger" aria-hidden="true"></i>
+                        </div>
+                        <div class="card-body px-4 py-3">
+                            <h5 class="mb-3 card-title text-dark">Web Programming</h5>
+                            <P class="subtitle">I can build dynamic web applications using django web framework as well as help with everything concerning the backend and build APIs that other companies can use to integrate your app into their product.</P>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="card mb-5">
+                       <div class="card-header has-icon">
+                            <i class="ti-package text-danger" aria-hidden="true"></i>
+                        </div>
+                        <div class="card-body px-4 py-3">
+                            <h5 class="mb-3 card-title text-dark">Web Maintenance</h5>
+                            <P class="subtitle">I offer support for your web apps after i have completed your project, These include everything from checking your web app for broken links and scripts to updating your web app's content or adding new features, so your web app would be up-to-date</P>
+                        </div>
+                    </div>
+                </div>
+                
+        
+            </div>
+        </div>
+    </section>
+    <section class="section bg-dark py-5">
+        <div class="container text-center">
+            <h2 class="text-light mb-5 font-weight-normal">“My unmatched perspicacity coupled with my sheer indefatigability makes me a feared opponent in any realm of human endeavor.” ~ Emory Tate</h2>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="section bg-custom-gray" id="portfolio">
+        <div class="container">
+            <h1 class="mb-5"><span class="text-danger">My</span> Portfolio</h1>
+            <div class="portfolio">
+                <div class="filters">
+                   
+                    <a href="#" data-filter=".advertising" class="active">
+                        Advertising
+                    </a>
+
+                    <a href="#" data-filter=".web">
+                        Web
+                    </a>
+                </div>
+                <div class="portfolio-container">     
+                   
+                    <div class="col-md-6 col-lg-4 web">
+                        <div class="portfolio-item">
+                            <img src="{% static 'website/imgs/web-2.png' %}" class="img-fluid" alt="">
+                            <div class="#">
+                                <a class="img-popup" href="{% static 'website/imgs/web-2.png' %}"></a>
+                            </div> 
+                        </div>                         
+                    </div>
+                    
+                    <div class="col-md-6 col-lg-4 web">
+                        <div class="portfolio-item">
+                            <img src="{% static 'website/imgs/web-4.png' %}" class="img-fluid" alt="">
+                            <div class="#">
+                                <a class="img-popup" href="{% static 'website/imgs/web-4.png' %}"></a>
+                            </div>
+                        </div>                                                     
+                    </div>
+
+                    <div class="col-md-6 col-lg-4 advertising"> 
+                        <div class="portfolio-item">
+                            <img src="{% static 'website/imgs/advertising-1.png' %}" class="img-fluid" alt="">                               
+                            <div class="#">
+                                <a class="img-popup" href="{% static 'website/imgs/advertising-1.png' %}"></a>
+                            </div>
+                        </div>                                                       
+                    </div> 
+                    <div class="col-md-6 col-lg-4 web">
+                        <div class="portfolio-item">
+                            <img src="{% static 'website/imgs/web-3.png' %}" class="img-fluid" alt="">  
+                           <div class="#">
+                                <a class="img-popup" href="{% static 'website/imgs/web-3.png' %}"></a>
+                            </div>
+                        </div>                                                     
+                    </div>
+                   
+                    
+                  
+                  
+                  
+                  
+                </div> 
+            </div>  
+        </div>            
+    </section>
+    <!-- End of portfolio section -->
+ 
+                 
+
+    <div class="section contact" id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="contact-form-card">
+                        <h4 class="contact-title">Send a message</h4>
+                        <form action="{% url 'index' %}" method ="post">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <input  class="form-control" name="message-name" type="text" placeholder="Name *" required>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" name="message-email" type="email" placeholder="Email *" required>
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" name="message" placeholder="Message *" rows="7" required></textarea>
+                            </div>
+                            <div class="form-group ">
+                                <button type="submit" class="form-control btn btn-primary" >Send Message</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+               
+                        <ul class="social-icons pt-4">
+                            <li class="social-item"><a class="social-link text-dark" href="#"><i class="#" aria-hidden="true"></i></a></li>
+                            <li class="social-item"><a class="social-link text-dark" href="#"><i class="#" aria-hidden="true"></i></a></li>
+                            <li class="social-item"><a class="social-link text-dark" href="#"><i class="#" aria-hidden="true"></i></a></li>
+                            <li class="social-item"><a class="social-link text-dark" href="#"><i class="#" aria-hidden="true"></i></a></li>
+                            <li class="social-item"><a class="social-link text-dark" href="#"><i class="#" aria-hidden="true"></i></a></li>
+                        </ul> 
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <footer class="footer py-3">
+        <div class="container">
+            <p class="small mb-0 text-light">
+                &copy; <script>document.write(new Date().getFullYear())</script> Revised By <a target="_blank"><span class="text-danger" title="Bootstrap 4 Themes and Dashboards">Samuel Olu</span></a> 
+            </p>
+        </div>
+    </footer>
+    
+	<!-- core  -->
+    <script src="{% static 'website/vendors/jquery/jquery-3.4.1.js' %}"></script>
+    <script src="{% static 'website/vendors/bootstrap/bootstrap.bundle.js' %}"></script>
+
+    <!-- bootstrap 3 affix -->
+    <script src="{% static 'website/vendors/bootstrap/bootstrap.affix.js' %}"></script>
+
+    <!-- Isotope  -->
+    <script src="{% static 'website/vendors/isotope/isotope.pkgd.js' %}"></script>
+    
+   
+    <!-- JohnDoe js -->
+    <script src="{% static 'website/js/johndoe.js' %}"></script>
+
+</body>
+</html>
