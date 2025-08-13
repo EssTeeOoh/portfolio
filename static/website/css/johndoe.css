@@ -11683,3 +11683,24 @@ pre .code {
   display: block;
   margin-top: 10px;
 }
+
+.app-name {
+    text-align: center; /* Centers the text horizontally */
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #333; /* Adjust color as needed */
+    margin-top: 10px; /* Space between image and name */
+    text-decoration: none; /* Remove underline */
+    display: block; /* Ensures it takes full width of parent */
+    width: 100%; /* Explicitly set width to match parent */
+    box-sizing: border-box; /* Includes padding and border in width */
+}
+
+.portfolio-item {
+    text-align: center; /* Centers the content within portfolio-item */
+}
+
+.app-name:hover {
+    color: #0056b3; /* Optional: Change color on hover */
+    text-decoration: underline; /* Optional: Add underline on hover */
+}
