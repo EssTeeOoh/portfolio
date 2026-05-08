@@ -12,47 +12,228 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
 
-// smooth scroll
-$(document).ready(function(){
-    $(".navbar .nav-link").on('click', function(event) {
+$(document).ready(function () {
+    var $window = $(window);
+    var $navLinks = $(".navbar .nav-link");
+    var $portfolio = $(".portfolio-container");
+    var skillBarsAnimated = !1;
 
-        if (this.hash !== "") {
+    function smoothScrollTo(hash) {
+        var $target = $(hash);
 
-            event.preventDefault();
-
-            var hash = this.hash;
-
-            $('html, body').animate({
-                scrollTop: $(hash).offset().top
-            }, 700, function(){
-                window.location.hash = hash;
-            });
-        } 
-    });
-});
-
-// protfolio filters
-$(window).on("load", function() {
-    var t = $(".portfolio-container");
-    t.isotope({
-        filter: ".advertising",
-        animationOptions: {
-            duration: 750,
-            easing: "linear",
-            queue: !1
+        if (!$target.length) {
+            return;
         }
-    }), $(".filters a").click(function() {
-        $(".filters .active").removeClass("active"), $(this).addClass("active");
-        var i = $(this).attr("data-filter");
-        return t.isotope({
-            filter: i,
+
+        $("html, body").animate({
+            scrollTop: $target.offset().top - 20
+        }, 700, function () {
+            window.location.hash = hash;
+        });
+    }
+
+    function setActiveNavLink() {
+        var scrollPosition = $window.scrollTop() + 140;
+        var currentId = "home";
+
+        $("header[id], section[id], div[id]").each(function () {
+            var $section = $(this);
+            var top = $section.offset().top;
+            var bottom = top + $section.outerHeight();
+
+            if (scrollPosition >= top && scrollPosition < bottom) {
+                currentId = $section.attr("id");
+            }
+        });
+
+        $navLinks.removeClass("active");
+        $navLinks.filter('[href="#' + currentId + '"]').addClass("active");
+    }
+
+    function initTypedRole() {
+        var typedRole = document.querySelector(".typed-role");
+
+        if (!typedRole) {
+            return;
+        }
+
+        var fullText = typedRole.getAttribute("data-typed-text") || typedRole.textContent;
+        var index = 0;
+        typedRole.textContent = "";
+
+        function typeNextCharacter() {
+            if (index <= fullText.length) {
+                typedRole.textContent = fullText.slice(0, index);
+                index += 1;
+                window.setTimeout(typeNextCharacter, index < fullText.length ? 80 : 120);
+            }
+        }
+
+        typeNextCharacter();
+    }
+
+    function revealOnScroll() {
+        var revealNodes = document.querySelectorAll(".reveal-on-scroll");
+
+        if (!("IntersectionObserver" in window)) {
+            $(revealNodes).addClass("revealed");
+            return;
+        }
+
+        var revealObserver = new IntersectionObserver(function (entries, observer) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("revealed");
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.15
+        });
+
+        revealNodes.forEach(function (node) {
+            revealObserver.observe(node);
+        });
+    }
+
+    function animateSkillBars() {
+        if (skillBarsAnimated) {
+            return;
+        }
+
+        $(".animated-progress").each(function () {
+            var $bar = $(this);
+            var progress = $bar.data("progress");
+            $bar.css("width", progress + "%");
+        });
+
+        skillBarsAnimated = !0;
+    }
+
+    function watchResumeSection() {
+        var resumeSection = document.getElementById("resume");
+
+        if (!resumeSection) {
+            return;
+        }
+
+        if (!("IntersectionObserver" in window)) {
+            animateSkillBars();
+            return;
+        }
+
+        var progressObserver = new IntersectionObserver(function (entries, observer) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    animateSkillBars();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.35
+        });
+
+        progressObserver.observe(resumeSection);
+    }
+
+    function initPortfolioFilter() {
+        if (!$portfolio.length) {
+            return;
+        }
+
+        $portfolio.isotope({
+            filter: ".web",
             animationOptions: {
                 duration: 750,
                 easing: "linear",
                 queue: !1
             }
-        }), !1
+        });
+
+        $(".filters a").on("click", function () {
+            $(".filters .active").removeClass("active");
+            $(this).addClass("active");
+
+            $portfolio.isotope({
+                filter: $(this).attr("data-filter"),
+                animationOptions: {
+                    duration: 750,
+                    easing: "linear",
+                    queue: !1
+                }
+            });
+
+            return !1;
+        });
+    }
+
+    function initStackToggles() {
+        function toggleStack(event) {
+            event.preventDefault();
+            event.stopPropagation();
+
+            var $button = $(this);
+            var $card = $button.closest(".web-project-card");
+            var $panel = $card.find(".tech-stack-panel");
+            var techStack = $button.data("tech");
+            var isOpen = $card.hasClass("stack-open");
+
+            $(".web-project-card.stack-open").not($card).removeClass("stack-open")
+                .find(".tech-stack-panel").text("").attr("aria-hidden", "true");
+
+            if (isOpen) {
+                $card.removeClass("stack-open");
+                $panel.text("").attr("aria-hidden", "true");
+                return;
+            }
+
+            $panel.text("Built with " + techStack + ".").attr("aria-hidden", "false");
+            $card.addClass("stack-open");
+        }
+
+        $(".stack-toggle").on("click", toggleStack);
+        $(".stack-toggle").on("keydown", function (event) {
+            if (event.key === "Enter" || event.key === " ") {
+                toggleStack.call(this, event);
+            }
+        });
+
+        $(document).on("click", function (event) {
+            if (!$(event.target).closest(".web-project-card").length) {
+                $(".web-project-card.stack-open").removeClass("stack-open")
+                    .find(".tech-stack-panel").text("").attr("aria-hidden", "true");
+            }
+        });
+    }
+
+    function initSuccessState() {
+        if (!$("body").hasClass("form-submitted")) {
+            return;
+        }
+
+        window.setTimeout(function () {
+            smoothScrollTo("#contact");
+        }, 500);
+    }
+
+    $navLinks.on("click", function (event) {
+        if (this.hash !== "") {
+            event.preventDefault();
+            smoothScrollTo(this.hash);
+        }
     });
+
+    $window.on("scroll", function () {
+        setActiveNavLink();
+    });
+
+    initTypedRole();
+    revealOnScroll();
+    watchResumeSection();
+    initPortfolioFilter();
+    initStackToggles();
+    initSuccessState();
+    setActiveNavLink();
 });
 
 
