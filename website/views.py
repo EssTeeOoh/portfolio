@@ -1,6 +1,6 @@
-from django.shortcuts import render
+from django.contrib import messages
+from django.shortcuts import redirect, render
 from django.core.mail import send_mail
-from dentist import settings
 
 # Create your views here.
 
@@ -32,8 +32,14 @@ def index(request):
             fail_silently=False
         )
 
-        return render(request, 'index.html', {'message_name': message_name})
+        messages.success(request, message_name)
+        return redirect('index')
     
-    else:
-       return render(request, 'index.html', {})
+    message_name = None
+    storage = messages.get_messages(request)
+    for message in storage:
+        message_name = str(message)
+        break
+
+    return render(request, 'index.html', {'message_name': message_name})
 
